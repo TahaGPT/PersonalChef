@@ -1,9 +1,17 @@
 export default function MainComponent() {
   return (
     <main>
-      <h1>Welcome to Chef Claude's Kitchen</h1>
-      <p>Discover delicious recipes and cooking tips.</p>
-      <button>Get Started</button>
+      <form className = "FormDiv">
+        <input
+          className="FormInput"
+          type="text"
+          placeholder="e.g. Chilli"
+          aria-label="Add an ingredient"
+        />
+        <button className="Button">
+          + Add Ingredient
+        </button>
+      </form>
     </main>
   );
 }
