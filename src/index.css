@@ -40,8 +40,6 @@ main {
   justify-content: center;
   align-items: center;
   padding: 50px;
-
-  /* gap:20px; */
 }
 
 .FormInput {
@@ -76,46 +74,61 @@ main {
 }
 
 .Ing {
-  position: absolute;
-  left: 30%;
-  top: 200px; /* adjust as needed to clear the header */
   margin: 20px;
   min-width: 300px;
   max-width: 350px;
 }
 
+.Ing > ul {
+  padding: 0;
+}
+
 .RecipeReady {
-  padding: 30px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #c9c9c9;
+  position: relative;
+  left:-30%;
+  background: #cecdcd;
+  padding: 30px;
   border-radius: 20px;
-  margin: 50px;
-  flex-grow: 1;
-  max-width: 600px;
   min-width: 500px;
-  position:fixed;
-  left: 28%;
+  max-width: 800px;
+  width: 100%;
 }
 
 .RecipeReadyText > h3 {
   font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .RecipeReadyText > p {
+  font-weight: 400;
   font-size: 0.8rem;
-  margin: 10px 0px 0px 0px;
-  line-height: 20px;
-  color: #393939;
+  color: #666;
+  margin-top: 5px;
 }
 
 .RecipeReady > button {
   border: none;
+  margin: 0 0 0 50px;
+  border-radius: 6px;
   background: #d17557;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-  margin: 0px 0px 0px 50px;
-  border-radius: 6px;
-  padding: 10px 15px;
-  color: #ffffff;
+  color: #fafaf8;
+  padding: 9px 17px;
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+
+
+.recipeContainer {
+  color: #475467;
+  line-height: 28px;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.recipeContainer ul li, .suggested-recipe-container ol li {
+  margin-bottom: 8px;
 }

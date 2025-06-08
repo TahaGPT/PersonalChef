@@ -1,26 +1,29 @@
 import React from "react";
-
+import IngredientList from "./MainComponents/IngredientList.jsx";
+import Recipe from "./MainComponents/Recipe";
+import { callHuggingFaceAPI } from "./API.jsx";
 export default function MainComponent() {
   const [ingredients, setIngredients] = React.useState([]);
+  const [recipe, setRecipe] = React.useState("");
+  
 
-  const ingredientList = ingredients.map(function (ingredient) {
-    return <li key={ingredient}>{ingredient}</li>;
-  });
-
-  function addItem(event) {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+  function addItem(formData) {
     const newIngredient = formData.get("ingredient");
     setIngredients(function (prevIngredientList) {
       return [...prevIngredientList, newIngredient];
     });
   }
 
+  async function getRecipe() {
+    const myRecipe = await callHuggingFaceAPI(ingredients);
+    setRecipe(myRecipe);
+  }
+
 
 
   return (
     <main>
-      <form className="FormDiv" onSubmit={addItem}>
+      <form className="FormDiv" action={addItem}>
         <input
           className="FormInput"
           type="text"
@@ -31,17 +34,8 @@ export default function MainComponent() {
         <button className="Button">+ Add Ingredient</button>
       </form>
 
-      {ingredientList.length ? <section className = "Ing">
-        <h2>Ingredients on Hand : </h2>
-        <ul className = "ingredientList" aria-live = "polite">{ingredientList}</ul>
-        {ingredientList.length > 4 ? <div className="RecipeReady">
-          <div className="RecipeReadyText">
-            <h3>Ready for a Recipe?</h3>
-            <p>Generate a Recipe from your List of Ingredients</p>
-          </div>
-          <button>Get a Recipe</button>
-        </div> : null}
-      </section> : null}
+      {ingredients.length > 0 && <IngredientList ingredients={ingredients} getRecipe={getRecipe} />}
+      {recipe && <Recipe recipe = {recipe} />}
     </main>
   );
 }
