@@ -16,6 +16,8 @@ export default function MainComponent() {
     });
   }
 
+
+
   return (
     <main>
       <form className="FormDiv" onSubmit={addItem}>
@@ -28,7 +30,18 @@ export default function MainComponent() {
         />
         <button className="Button">+ Add Ingredient</button>
       </form>
-      <ul>{ingredientList}</ul>
+
+      {ingredientList.length ? <section className = "Ing">
+        <h2>Ingredients on Hand : </h2>
+        <ul className = "ingredientList" aria-live = "polite">{ingredientList}</ul>
+        {ingredientList.length > 4 ? <div className="RecipeReady">
+          <div className="RecipeReadyText">
+            <h3>Ready for a Recipe?</h3>
+            <p>Generate a Recipe from your List of Ingredients</p>
+          </div>
+          <button>Get a Recipe</button>
+        </div> : null}
+      </section> : null}
     </main>
   );
 }

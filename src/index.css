@@ -71,6 +71,51 @@ main {
   box-shadow: 0px 1px 2px 1px rgb(253, 165, 2);
 }
 
-main > ul {
+.Ing > ul {
   margin: 20px;
+}
+
+.Ing {
+  position: absolute;
+  left: 30%;
+  top: 200px; /* adjust as needed to clear the header */
+  margin: 20px;
+  min-width: 300px;
+  max-width: 350px;
+}
+
+.RecipeReady {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c9c9c9;
+  border-radius: 20px;
+  margin: 50px;
+  flex-grow: 1;
+  max-width: 600px;
+  min-width: 500px;
+  position:fixed;
+  left: 28%;
+}
+
+.RecipeReadyText > h3 {
+  font-weight: 500;
+}
+
+.RecipeReadyText > p {
+  font-size: 0.8rem;
+  margin: 10px 0px 0px 0px;
+  line-height: 20px;
+  color: #393939;
+}
+
+.RecipeReady > button {
+  border: none;
+  background: #d17557;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  margin: 0px 0px 0px 50px;
+  border-radius: 6px;
+  padding: 10px 15px;
+  color: #ffffff;
 }
