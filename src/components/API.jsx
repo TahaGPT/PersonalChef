@@ -20,7 +20,7 @@ Format your recipe in **Markdown** with the following structure:
         method: "POST",
         headers: {
           Authorization:
-            "Bearer <Your API>",
+            "Bearer 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 ",
           // "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
           // "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
           "Content-Type": "application/json",
@@ -39,7 +39,6 @@ Format your recipe in **Markdown** with the following structure:
 
     const output = await response.json();
     const data = output.choices?.[0]?.message?.content || "No recipe found.";
-
     return data;
   } catch (error) {
     console.error("API call failed:", error);
