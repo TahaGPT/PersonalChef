@@ -20,7 +20,7 @@ Format your recipe in **Markdown** with the following structure:
         method: "POST",
         headers: {
           Authorization:
-            "Bearer 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 ",
+            "Bearer <API>",
           // "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
           // "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
           "Content-Type": "application/json",
