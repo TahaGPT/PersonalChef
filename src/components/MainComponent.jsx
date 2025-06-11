@@ -1,7 +1,7 @@
 import React from "react";
 import IngredientList from "./MainComponents/IngredientList.jsx";
 import Recipe from "./MainComponents/Recipe";
-import { callHuggingFaceAPI } from "./API.jsx";
+import { callRecipe } from "./API.jsx";
 export default function MainComponent() {
   const [ingredients, setIngredients] = React.useState([]);
   const [recipe, setRecipe] = React.useState("");
@@ -15,7 +15,7 @@ export default function MainComponent() {
   }
 
   async function getRecipe() {
-    const myRecipe = await callHuggingFaceAPI(ingredients);
+    const myRecipe = await callRecipe(ingredients);
     setRecipe(myRecipe);
   }
 

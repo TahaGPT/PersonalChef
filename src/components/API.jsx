@@ -1,9 +1,4 @@
-import axios from "axios";
-
-const YOUR_HF_TOKEN = "api key"; // Keep this secure!
-const API_URL = "https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1";
-
-export async function callHuggingFaceAPI(ingredients) {
+export async function callRecipe(ingredients) {
     const instruction = `
 You are a professional chef assistant. Your task is to receive a list of ingredients and suggest a recipe that could be made using some or all of them. 
 You may add 1-3 extra ingredients if necessary, but try to stick to the provided list. 
@@ -19,20 +14,33 @@ Format your recipe in **Markdown** with the following structure:
   )}`;
 
   try {
-    const response = await axios.post(
-      API_URL,
-      { inputs: inputText },
+    const response = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
       {
+        method: "POST",
         headers: {
-          Authorization: `Bearer ${YOUR_HF_TOKEN}`,
+          Authorization:
+            "Bearer <Your API>",
+          // "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
+          // "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          model: "deepseek/deepseek-r1:free",
+          messages: [
+            {
+              role: "user",
+              content: inputText,
+            },
+          ],
+        }),
       }
     );
 
-    const output =
-      response.data?.[0]?.generated_text || "No response from model.";
-    return output;
+    const output = await response.json();
+    const data = output.choices?.[0]?.message?.content || "No recipe found.";
+
+    return data;
   } catch (error) {
     console.error("API call failed:", error);
     return "Sorry, there was an error generating your recipe.";

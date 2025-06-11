@@ -2,9 +2,15 @@
   margin: 0;
 }
 
+.icon {
+  width: 80px;
+  /* height: 30px; */
+  margin-right: 10px;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #e6fafb;
   color: #333;
 }
 
@@ -12,7 +18,7 @@ header {
   display: flex;
   height: 80px;
   font-size: 30px;
-  background-color: #ffffff;
+  background-color: #f7e7c5;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
@@ -51,22 +57,26 @@ main {
   flex-grow: 1;
   padding: 7px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease
 }
 
 .FormInput:focus {
   outline: none;
-  box-shadow: 0px 1px 2px 1px rgb(253, 165, 2);
+  box-shadow: 0px 1px 2px 1px rgb(2, 253, 220);
 }
 
 .Button {
-  background-color: #333;
+  background-color: #475467;  
   color: rgb(255, 255, 255);
   padding: 7px;
   border-radius: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .Button:hover {
   box-shadow: 0px 1px 2px 1px rgb(253, 165, 2);
+  background-color: #333;
 }
 
 .Ing > ul {
@@ -77,6 +87,8 @@ main {
   margin: 20px;
   min-width: 300px;
   max-width: 350px;
+  color: #475467;
+
 }
 
 .Ing > ul {
@@ -111,24 +123,32 @@ main {
   border: none;
   margin: 0 0 0 50px;
   border-radius: 6px;
-  background: #d17557;
+  background: #c829e8;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   color: #fafaf8;
   padding: 9px 17px;
   font-family: Inter, sans-serif;
   font-size: 0.875rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.RecipeReady > button:hover {
+  background-color: #a11ac6;
 }
 
 
 
-.recipeContainer {
+.RecipeContainer {
   color: #475467;
   line-height: 28px;
   font-size: 1.125rem;
   font-weight: 400;
+  background-color: #f9c0a5;
+  padding: 30px;
+  border-radius: 30px;
 }
 
-.recipeContainer ul li, .suggested-recipe-container ol li {
+.RecipeContainer ul li, .suggested-recipe-container ol li {
   margin-bottom: 8px;
 }
